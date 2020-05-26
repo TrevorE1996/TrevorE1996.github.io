@@ -1,0 +1,47 @@
+
+.box{
+	width:100px;
+	height:100px;
+}
+
+.inline {
+  display: inline-block;
+}
+
+.red{
+	background:#f00;
+}
+.green{
+	background:#0f0;
+ 
+}
+.black{
+	background:#000000;
+}
+.aqua{
+	background:#00FFFF;
+}
+.brown{
+	background:#A52A2A;
+}
+.chocolate{
+	background:#D2691E;
+}
+.deeppink{
+	background:#FF1493;
+}
+.darkslateblue{
+	background:#483D8B;
+}
+.yellow{
+	background:#FFFF00;
+}
+.grey{
+	background:#808080;
+}
+.olive{
+	background:#808000;
+}
+.thistle{
+	background:#D8BFD8;
+}
