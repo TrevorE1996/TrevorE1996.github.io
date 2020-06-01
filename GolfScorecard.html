@@ -12,7 +12,7 @@
   <body>
     
     <!-- External JS -->
-    <script src="golfScript.js"></script>
+    <!-- <script src="golfScript.js"></script> -->
     
     <h1>Golf Scorecard</h1>
         
@@ -231,7 +231,392 @@
   </tr>
 </table>
     
-        
-        
+  <script> 
+    
+    // assign the table row for hole 1 to a variable
+var elem1 = document.getElementById("1");
+
+var elem2 = document.getElementById("2");
+
+var elem3 = document.getElementById("3");
+
+var elem4 = document.getElementById("4");
+
+var elem5 = document.getElementById("5");
+
+var elem6 = document.getElementById("6");
+
+var elem7 = document.getElementById("7");
+
+var elem8 = document.getElementById("8");
+
+var elem9 = document.getElementById("9");
+
+var elem10 = document.getElementById("10");
+
+var elem11 = document.getElementById("11");
+
+var elem12 = document.getElementById("12");
+
+var elem13 = document.getElementById("13");
+
+var elem14 = document.getElementById("14");
+
+var elem15 = document.getElementById("15");
+
+var elem16 = document.getElementById("16");
+
+var elem17 = document.getElementById("17");
+
+var elem18 = document.getElementById("18");
+
+var currentScore = 0;
+//------------------------------------------------------------------
+//------------------------------------------------------------------
+//------------------------------------------------------------------
+
+// hole 1
+// assign a function to the + button
+elem1.children[4].children[0].onclick = function(){add1(elem1);};
+
+// assign a function to the - button
+elem1.children[4].children[1].onclick 
+  = function(){subtract1(elem1);};
+
+//this is for clearing
+elem1.children[4].children[2].onclick = function(){clear(elem1);};
+
+//------------------------------------------------------------------
+// hole 2
+// assign a function to the + button
+elem2.children[4].children[0].onclick 
+  = function(){add1(elem2);};
+
+// assign a function to the - button
+elem2.children[4].children[1].onclick 
+  = function(){subtract1(elem2);};
+
+//this is for clearing
+elem2.children[4].children[2].onclick = function(){clear(elem2);};
+
+//------------------------------------------------------------------
+// hole 3
+// assign a function to the + button
+elem3.children[4].children[0].onclick 
+  = function(){add1(elem3);};
+
+// assign a function to the - button
+elem3.children[4].children[1].onclick 
+  = function(){subtract1(elem3);};
+
+//this is for clearing
+elem3.children[4].children[2].onclick = function(){clear(elem3);};
+
+//------------------------------------------------------------------
+// hole 4
+// assign a function to the + button
+elem4.children[4].children[0].onclick 
+  = function(){add1(elem4);};
+
+// assign a function to the - button
+elem4.children[4].children[1].onclick 
+  = function(){subtract1(elem4);};
+
+//this is for clearing
+elem4.children[4].children[2].onclick = function(){clear(elem4);};
+
+//------------------------------------------------------------------
+// hole 5
+// assign a function to the + button
+elem5.children[4].children[0].onclick 
+  = function(){add1(elem5);};
+
+// assign a function to the - button
+elem5.children[4].children[1].onclick 
+  = function(){subtract1(elem5);};
+
+//this is for clearing
+elem5.children[4].children[2].onclick = function(){clear(elem5);};
+
+//------------------------------------------------------------------
+// hole 6
+// assign a function to the + button
+elem6.children[4].children[0].onclick 
+  = function(){add1(elem6);};
+
+// assign a function to the - button
+elem6.children[4].children[1].onclick 
+  = function(){subtract1(elem6);};
+
+//this is for clearing
+elem6.children[4].children[2].onclick = function(){clear(elem6);};
+
+//------------------------------------------------------------------
+// hole 7
+// assign a function to the + button
+elem7.children[4].children[0].onclick 
+  = function(){add1(elem7);};
+
+// assign a function to the - button
+elem7.children[4].children[1].onclick 
+  = function(){subtract1(elem7);};
+
+//this is for clearing
+elem7.children[4].children[2].onclick = function(){clear(elem7);};
+
+//------------------------------------------------------------------
+// hole 8
+// assign a function to the + button
+elem8.children[4].children[0].onclick 
+  = function(){add1(elem8);};
+
+// assign a function to the - button
+elem8.children[4].children[1].onclick 
+  = function(){subtract1(elem8);};
+
+//this is for clearing
+elem8.children[4].children[2].onclick = function(){clear(elem8);};
+
+//------------------------------------------------------------------
+// hole 9
+// assign a function to the + button
+elem9.children[4].children[0].onclick 
+  = function(){add1(elem9);};
+
+// assign a function to the - button
+elem9.children[4].children[1].onclick 
+  = function(){subtract1(elem9);};
+
+//this is for clearing
+elem9.children[4].children[2].onclick = function(){clear(elem9);};
+
+//------------------------------------------------------------------
+// hole 10
+// assign a function to the + button
+elem10.children[4].children[0].onclick 
+  = function(){add1(elem10);};
+
+// assign a function to the - button
+elem10.children[4].children[1].onclick 
+  = function(){subtract1(elem10);};
+
+//this is for clearing
+elem10.children[4].children[2].onclick = function(){clear(elem10);};
+
+//------------------------------------------------------------------
+// hole 11
+// assign a function to the + button
+elem11.children[4].children[0].onclick 
+  = function(){add1(elem11);};
+
+// assign a function to the - button
+elem11.children[4].children[1].onclick 
+  = function(){subtract1(elem11);};
+
+//this is for clearing
+elem11.children[4].children[2].onclick = function(){clear(elem11);};
+
+//------------------------------------------------------------------
+// hole 12
+// assign a function to the + button
+elem12.children[4].children[0].onclick 
+  = function(){add1(elem12);};
+
+// assign a function to the - button
+elem12.children[4].children[1].onclick 
+  = function(){subtract1(elem12);};
+
+//this is for clearing
+elem12.children[4].children[2].onclick = function(){clear(elem12);};
+
+//------------------------------------------------------------------
+// hole 13
+// assign a function to the + button
+elem13.children[4].children[0].onclick 
+  = function(){add1(elem13);};
+
+// assign a function to the - button
+elem13.children[4].children[1].onclick 
+  = function(){subtract1(elem13);};
+
+//this is for clearing
+elem13.children[4].children[2].onclick = function(){clear(elem13);};
+
+//------------------------------------------------------------------
+// hole 14
+// assign a function to the + button
+elem14.children[4].children[0].onclick 
+  = function(){add1(elem14);};
+
+// assign a function to the - button
+elem14.children[4].children[1].onclick 
+  = function(){subtract1(elem14);};
+
+//this is for clearing
+elem14.children[4].children[2].onclick = function(){clear(elem14);};
+
+//------------------------------------------------------------------
+// hole 15
+// assign a function to the + button
+elem15.children[4].children[0].onclick 
+  = function(){add1(elem15);};
+
+// assign a function to the - button
+elem15.children[4].children[1].onclick 
+  = function(){subtract1(elem15);};
+
+//this is for clearing
+elem15.children[4].children[2].onclick = function(){clear(elem15);};
+
+//------------------------------------------------------------------
+// hole 16
+// assign a function to the + button
+elem16.children[4].children[0].onclick 
+  = function(){add1(elem16);};
+
+// assign a function to the - button
+elem16.children[4].children[1].onclick 
+  = function(){subtract1(elem16);};
+
+//this is for clearing
+elem16.children[4].children[2].onclick = function(){clear(elem16);};
+
+//------------------------------------------------------------------
+// hole 17
+// assign a function to the + button
+elem17.children[4].children[0].onclick 
+  = function(){add1(elem17);};
+
+// assign a function to the - button
+elem17.children[4].children[1].onclick 
+  = function(){subtract1(elem17);};
+
+//this is for clearing
+elem17.children[4].children[2].onclick = function(){clear(elem17);};
+
+//------------------------------------------------------------------
+// hole 18
+// assign a function to the + button
+elem18.children[4].children[0].onclick 
+  = function(){add1(elem18);};
+
+// assign a function to the - button
+elem18.children[4].children[1].onclick 
+  = function(){subtract1(elem18);};
+
+//this is for clearing
+elem18.children[4].children[2].onclick = function(){clear(elem18);};
+
+//------------------------------------------------------------------
+//------------------------------------------------------------------
+//------------------------------------------------------------------
+
+function updateScore () {
+junk = document.getElementsByTagName("tr");
+scoreTotal = 0; overTotal = 0;
+
+for(var i = 1; i<19; i++)
+  {
+   
+    if(junk[i].children[2].innerHTML == "-")
+      {
+        scoreTotal += 0;
+      }
+    else
+      {
+        scoreTotal += parseInt(junk[i].children[2].innerHTML);
+      }
+    if(junk[i].children[3].innerHTML == "-")
+      {
+        overTotal += 0;
+      }
+    else
+      {
+        overTotal += parseInt(junk[i].children[3].innerHTML);
+      }
+  junk[19].children[2].innerHTML = scoreTotal;
+  junk[19].children[3].innerHTML = overTotal;
+}
+}
+
+
+// function to add 1 
+function add1 (elem, currentScore) {
+  var currentScore = 0;
+  if(elem.children[2].innerHTML == "-") 
+  {
+    elem.children[2].innerHTML = "1";
+    currentScore++;
+  }
+    else {
+    currentScore = elem.children[2].innerHTML;
+    currentScore = Number.parseInt(currentScore);
+    elem.children[2].innerHTML = currentScore + 1;
+    currentScore++;
+  }
+  over(elem,currentScore);
+  updateScore();
+ 
+}
+//------------------------------------------------------------------
+// function to subtract 1
+function subtract1 (elem, currentScore) {
+  var currentScore = 0;
+  if(elem.children[2].innerHTML == "-") 
+  {
+    elem.children[2].innerHTML = "-1";
+    currentScore--;
+    
+  }
+  else {
+    currentScore = elem.children[2].innerHTML;
+    currentScore = Number.parseInt(currentScore);
+    elem.children[2].innerHTML = currentScore - 1;
+  }
+  over(elem,currentScore);
+  updateScore();
+  
+}
+//------------------------------------------------------------------
+// this function is to tell if you are over/under par and by how much 
+function over (elem, currentScore) {
+ elem.children[3].innerHTML = currentScore-4;
+    
+
+}
+//------------------------------------------------------------------
+// this function is for par totals
+function parTotals (elem){
+   if(elem.children[1].innerHTML == "-") {
+     elem.children[1].innerHTML = elem.children[1].children[1]+elem.children[1].children[2]+elem.children[1].children[3]+elem.children[1].children[4]+elem.children[1].children[5]+elem.children[1].children[6]+elem.children[1].children[7]+elem.children[1].children[8]+elem.children[1].children[9]+elem.children[1].children[10]+elem.children[1].children[11]+elem.children[1].children[12]+elem.children[1].children[13]+elem.children[1].children[14]+elem.children[1].children[15]+elem.children[1].children[16]+elem.children[1].children[17]+elem.children[1].children[18]
+   }
+  else {
+    elem.children[2].innerHTML == "0";
+  }
+
+}
+//------------------------------------------------------------------
+// this function will clear the row to default
+function clear (elem){
+   if(elem.children[2].innerHTML !== "-") 
+   {
+     elem.children[2].innerHTML = "-";
+   }
+  else {
+    elem.children[2].innerHTML = "-";
+  }
+  
+  if(elem.children[3].innerHTML !== "-") 
+  {
+    elem.children[3].innerHTML = "-";
+  }
+  else {
+    elem.children[3].innerHTML = "-";
+  }
+
+updateScore();
+}
+    
+    </script>      
   </body>
 </html>
