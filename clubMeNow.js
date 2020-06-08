@@ -46,6 +46,10 @@ function resetAllClubDistances() {
 	// store the array in local storage
 	var str = JSON.stringify(clubs);
 	localStorage.setItem("clubs", str);
+	
+	//copy array
+	var strCopy == str;
+	
 	// and refresh screen
 	window.location.href = "clubDistanceList.html"; 
 }
@@ -94,7 +98,13 @@ function displayclubDistanceEntryForm(c) {
 
 // replace the current "clubs" array with the previous one
 function undoLastShot() {
-        // your code here !
+	
+	str == strCopy;
+	
+	// and refresh screen
+	window.location.href = "clubDistanceList.html";
+	
+	
 }
 
 // navigate to "About" screen
