@@ -1,4 +1,6 @@
 // assign the table row for hole 1 to a variable
+
+
 var elem1 = document.getElementById("1");
 
 var elem2 = document.getElementById("2");
@@ -50,6 +52,8 @@ elem1.children[4].children[1].onclick
 
 //this is for clearing
 elem1.children[4].children[2].onclick = function(){clear(elem1);};
+
+
 
 //------------------------------------------------------------------
 // hole 2
@@ -301,6 +305,28 @@ for(var i = 1; i<19; i++)
       }
   junk[19].children[2].innerHTML = scoreTotal;
   junk[19].children[3].innerHTML = overTotal;
+  
+  junk[20].children[2].innerHTML = (scoreTotal/18).toFixed(2);
+
+  junk[1].children[5].innerHTML = junk[1].children[2].innerHTML;  
+  junk[2].children[5].innerHTML = junk[2].children[2].innerHTML;
+  junk[3].children[5].innerHTML = junk[3].children[2].innerHTML;
+  junk[4].children[5].innerHTML = junk[4].children[2].innerHTML;
+  junk[5].children[5].innerHTML = junk[5].children[2].innerHTML;
+  junk[6].children[5].innerHTML = junk[6].children[2].innerHTML;
+  junk[7].children[5].innerHTML = junk[7].children[2].innerHTML;
+  junk[8].children[5].innerHTML = junk[8].children[2].innerHTML;
+  junk[9].children[5].innerHTML = junk[9].children[2].innerHTML;  
+  junk[10].children[5].innerHTML = junk[10].children[2].innerHTML;
+  junk[11].children[5].innerHTML = junk[11].children[2].innerHTML;  
+  junk[12].children[5].innerHTML = junk[12].children[2].innerHTML;
+  junk[13].children[5].innerHTML = junk[13].children[2].innerHTML; 
+  junk[14].children[5].innerHTML = junk[14].children[2].innerHTML;
+  junk[15].children[5].innerHTML = junk[15].children[2].innerHTML; 
+  junk[16].children[5].innerHTML = junk[16].children[2].innerHTML;
+  junk[17].children[5].innerHTML = junk[17].children[2].innerHTML; 
+  junk[18].children[5].innerHTML = junk[18].children[2].innerHTML;  
+    
 }
 }
 
@@ -382,3 +408,24 @@ function clear (elem){
 updateScore();
 }
 
+function resetAllScores() {
+	// create 2d global array, called "clubs" throughout app
+	// columns - 0: Date 1-7 for the week, 1: Hole 1, 2: Hole 2, 
+	// 3: Hole 3, 4: Hole 4, 5: Hole 5, 6: Hole 6, 
+	// 7: Hole 7, etc.
+	rounds = [
+		[ 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[ 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[ 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+	  [ 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[ 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+		[ 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [ 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]		
+	];
+	// store the array in local storage
+	var rs = JSON.stringify(rounds);
+	localStorage.setItem("rounds", rs);
+	
+	// and refresh screen
+	window.location.href = "golfScorecards.html"; 
+}
