@@ -164,15 +164,17 @@ var loans = [
       $(`#loan_year0${i}`).val(defaultYear++); //add one year to each year so its 2020-2021-2022-etc
       $(`#loan_year0${i}`).attr("disabled","true"); //this will grey out the second year
       $(`#loan_year0${i}`).css({"backgroundColor":"grey","color":"white"}); //this will actually make it grey with white letters
-      $(`#loan_amt0${i}`).val(defaultLoanAmount.toFixed(2));
-      $(`#loan_int0${i}`).val(defaultInterestRate);
-      $(`#loan_int0${i}`).attr("disabled","true");
-      $(`#loan_int0${i}`).css({"backgroundColor":"grey","color":"white"});
-      loanWithInterest = (loanWithInterest + defaultLoanAmount) * (1 + defaultInterestRate);
-      $("#loan_bal0" + i).text(toMoney(loanWithInterest));
+      $(`#loan_amt0${i}`).val(defaultLoanAmount.toFixed(2)); //default the loan amount
+      $(`#loan_int0${i}`).val(defaultInterestRate); //default the interest rate
+      $(`#loan_int0${i}`).attr("disabled","true"); //grey out the second year
+      $(`#loan_int0${i}`).css({"backgroundColor":"grey","color":"white"});//make grey have white letters
+      loanWithInterest = (loanWithInterest + defaultLoanAmount) * (1 + defaultInterestRate); //calculate the interest and amount
+      $("#loan_bal0" + i).text(toMoney(loanWithInterest)); //fill in the amount to the right 
       } // end: "for" loop
     
     // all input fields: select contents on focus
+    //allows the one window to highlight yellow and the other window to go out of focus so its white again and wont be able to type numbers 
+    
     $("input[type=text]").focus(function() {
       $(this).select();
       $(this).css("background-color", "yellow");
@@ -187,6 +189,7 @@ var loans = [
 
   } // end: function loadDoc()
   
+  //this is to update the form
   let updateForm = () => {
     loanWithInterest = 0;
     let totalAmt = 0;
@@ -218,28 +221,36 @@ var loans = [
   
   
   function updateLoansArray() {
+    
+    //declirations 
+    //regular expressions
     let valid = true;
-    let yearP = /^(19|20)\d{2}$/;
-    let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;
-    let intP = /^(0|)+(.[0-9]{1,5})?$/;
-
+    let yearP = /^(19|20)\d{2}$/;//first part of the year can be 19 or 20
+    let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;//lists pattern for amount
+    let intP = /^(0|)+(.[0-9]{1,5})?$/;//list pattern for interest rate
+    
+    //check if year value matches the year pattern
     if(!yearP.test($(`#loan_year01`).val())){
       valid = false;
       $(`#loan_year01`).css("background-color", "red");
     }
     
+    //if amount matches the amount pattern
     for (i = 1; i < 6; i++) {
       if(!amtP.test($(`#loan_amt0${i}`).val())){
         valid = false;
         $(`#loan_amt0${i}`).css("background-color", "red");
       } 
     }
-
+    
+    //if intrest rate matches interest rate pattern
     if(!intP.test($(`#loan_int01`).val())){
       valid = false;
       $(`#loan_int01`).css("background-color", "red");
     }
 
+    //this will only process and update all of the follwoing tables if all of the conditions above are valid 
+    //will update the form if valid 
     if(valid){
       loans[0].loan_year = parseInt($("#loan_year01").val());
       for(var i=1; i<5; i++) {
@@ -254,6 +265,7 @@ var loans = [
         loans[i].loan_int_rate = rate;
       }
 
+      //calls updateForm function
       updateForm();
     }
   }
