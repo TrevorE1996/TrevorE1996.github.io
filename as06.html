@@ -144,7 +144,7 @@ var loans = [
   
   // --- function: loadDoc() ---
   
-    
+  //display the entry form  
   function loadDoc() {
     
     // pre-fill defaults for first loan year
@@ -174,7 +174,6 @@ var loans = [
     
     // all input fields: select contents on focus
     //allows the one window to highlight yellow and the other window to go out of focus so its white again and wont be able to type numbers 
-    
     $("input[type=text]").focus(function() {
       $(this).select();
       $(this).css("background-color", "yellow");//will make the background color for selected box yellow
@@ -190,7 +189,8 @@ var loans = [
   } // end: function loadDoc()
   
   //this is to update the form
-  //will grab data from loans array and load that into the table in the white section
+  //will grab data from loans array and load that into the table in the white section of the page
+  //meaning that it will display for all 10 payments
   let updateForm = () => {
     loanWithInterest = 0;
     let totalAmt = 0;
@@ -220,23 +220,23 @@ var loans = [
     return `\$${toComma(value.toFixed(2))}`;
   }
   
-  
+  //this funciton will update the loans array 
   function updateLoansArray() {
     
     //declirations 
-    //regular expressions
+    //regular expressions and test their arguments 
     let valid = true;
-    let yearP = /^(19|20)\d{2}$/;//first part of the year can be 19 or 20
-    let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;//lists pattern for amount
-    let intP = /^(0|)+(.[0-9]{1,5})?$/;//list pattern for interest rate
+    let yearP = /^(19|20)\d{2}$/;//first part of the year can be 19 or 20 //test if the year starts with a 19 or 20 and is 4 digets 
+    let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;//lists pattern for amount //test if its a actual number that doesnt start with 0 and then ends in exactly 2 digits
+    let intP = /^(0|)+(.[0-9]{1,5})?$/;//list pattern for interest rate meaning starts with 0 or . and then has no mroe then 5 digits accepted
     
-    //check if year value matches the year pattern yearP
+    //check if year value matches the year pattern yearP if not it makes the box red
     if(!yearP.test($(`#loan_year01`).val())){
       valid = false;
       $(`#loan_year01`).css("background-color", "red");
     }
     
-    //if amount matches the amount pattern amtP
+    //if amount matches the amount pattern amtP if not it makes the box red
     for (i = 1; i < 6; i++) {
       if(!amtP.test($(`#loan_amt0${i}`).val())){
         valid = false;
@@ -244,7 +244,7 @@ var loans = [
       } 
     }
     
-    //if intrest rate matches interest rate pattern in intP
+    //if intrest rate matches interest rate pattern in intP if not it makes the box red
     if(!intP.test($(`#loan_int01`).val())){
       valid = false;
       $(`#loan_int01`).css("background-color", "red");
@@ -312,6 +312,7 @@ var app = angular.module('myApp', []); //a app object has to be created for this
       for (let i = 0; i < 10; i++) {
       total -= pay //6500 calcuate the total
       let int = total * (iRate); //calculate interest rate
+        
         //object that holds all this from 0-9
         $scope.payments[i]={
         "year":loans[4].loan_year + i + 1,
