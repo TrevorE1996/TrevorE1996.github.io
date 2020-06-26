@@ -177,11 +177,11 @@ var loans = [
     
     $("input[type=text]").focus(function() {
       $(this).select();
-      $(this).css("background-color", "yellow");
+      $(this).css("background-color", "yellow");//will make the background color for selected box yellow
     }); 
     $("input[type=text]").blur(function() {
-      $(this).css("background-color", "white");
-      updateLoansArray();
+      $(this).css("background-color", "white");//when the box is out of focus it will become white 
+      updateLoansArray();//update the array
     });
     
     // set focus to first year: messes up codepen
@@ -230,13 +230,13 @@ var loans = [
     let amtP = /^([1-9][0-9]*)+(.[0-9]{1,2})?$/;//lists pattern for amount
     let intP = /^(0|)+(.[0-9]{1,5})?$/;//list pattern for interest rate
     
-    //check if year value matches the year pattern
+    //check if year value matches the year pattern yearP
     if(!yearP.test($(`#loan_year01`).val())){
       valid = false;
       $(`#loan_year01`).css("background-color", "red");
     }
     
-    //if amount matches the amount pattern
+    //if amount matches the amount pattern amtP
     for (i = 1; i < 6; i++) {
       if(!amtP.test($(`#loan_amt0${i}`).val())){
         valid = false;
@@ -244,7 +244,7 @@ var loans = [
       } 
     }
     
-    //if intrest rate matches interest rate pattern
+    //if intrest rate matches interest rate pattern in intP
     if(!intP.test($(`#loan_int01`).val())){
       valid = false;
       $(`#loan_int01`).css("background-color", "red");
@@ -253,14 +253,17 @@ var loans = [
     //this will only process and update all of the follwoing tables if all of the conditions above are valid 
     //will update the form if valid 
     if(valid){
+      //update the year table
       loans[0].loan_year = parseInt($("#loan_year01").val());
       for(var i=1; i<5; i++) {
         loans[i].loan_year = loans[0].loan_year + i;
       }
+      //update the amount table
       for(i = 1; i<6; i++){
         let amt = parseFloat($(`#loan_amt0${i}`).val()).toFixed(2);
         loans[i-1].loan_amount = amt;
       }
+      //update the interest table
       let rate = parseFloat($("#loan_int01").val());
       for(i=0; i<5; i++){
         loans[i].loan_int_rate = rate;
@@ -307,8 +310,8 @@ var app = angular.module('myApp', []); //a app object has to be created for this
     
       //for loop helps to generate the payments table at the bottom
       for (let i = 0; i < 10; i++) {
-      total -= pay //6500
-      let int = total * (iRate); 
+      total -= pay //6500 calcuate the total
+      let int = total * (iRate); //calculate interest rate
         //object that holds all this from 0-9
         $scope.payments[i]={
         "year":loans[4].loan_year + i + 1,
