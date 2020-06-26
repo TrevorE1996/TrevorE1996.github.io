@@ -190,6 +190,7 @@ var loans = [
   } // end: function loadDoc()
   
   //this is to update the form
+  //will grab data from loans array and load that into the table in the white section
   let updateForm = () => {
     loanWithInterest = 0;
     let totalAmt = 0;
@@ -207,8 +208,8 @@ var loans = [
     $(`#loan_int_accrued`).text(toMoney(int));
   }
   
-  //plain javascript 
   
+  //plain javascript 
   //for every 1,000 value this function will add a comma
   function toComma(value) {
       return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -287,10 +288,14 @@ var loans = [
  
  // angular
 
-var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope) {
-  $scope.payments =[];
-  $scope.populate = function () {
+var app = angular.module('myApp', []); //a app object has to be created for this to work
+
+  //conects the controller with the view 
+  app.controller('myCtrl', function($scope) { 
+  $scope.payments =[]; //payments array of objects made
+  
+    //populate payments array
+    $scope.populate = function () {
     updateForm();
     let total = loanWithInterest;
     let iRate = loans[0].loan_int_rate;
@@ -299,16 +304,20 @@ app.controller('myCtrl', function($scope) {
     //loan payment formula
     //https://www.thebalance.com/loan-payment-calculations-315564
     let pay = 12 * (total / ((((1+r)**(n*12))-1)/(r *(1+r)**(n*12))));
-    for (let i = 0; i < 10; i++) {
+    
+      //for loop helps to generate the payments table at the bottom
+      for (let i = 0; i < 10; i++) {
       total -= pay //6500
       let int = total * (iRate); 
-      $scope.payments[i]={
+        //object that holds all this from 0-9
+        $scope.payments[i]={
         "year":loans[4].loan_year + i + 1,
         "payment": toMoney(pay), //toMoney(6500),
         "amt": toMoney(int),
         "ye": toMoney(total += int)
       }
     }
+    //this is the last total balance so its not the same  
     $scope.payments[10] = {
       "year":loans[4].loan_year + 11,
       "payment": toMoney(total),
