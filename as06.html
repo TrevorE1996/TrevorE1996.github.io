@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
+  <!-- meta data -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -19,9 +21,13 @@
 
 </head>
 
+  <!-- once html loads loadDoc fires off  -->
 <body onload="loadDoc();">
-
+    
+  <!-- bootstrap  -->
     <div class="container">
+      
+      <!-- for angular each app has to have this identifier -->
         <div ng-app="myApp" ng-controller="myCtrl">
         <form>
 
@@ -34,6 +40,7 @@
                     <div class="form-group">
                     
                         <h2>Loans</h2>
+                      <!-- all values are pre filled-->
 
                         <table class="table" id="loan_table">
                             <tr>
@@ -78,6 +85,7 @@
                             </tr>
                         </table>
                         <br />
+                      <!-- buttones for the application -->
                         <button type="button" class="btn btn-primary" ng-click="populate();">Re-calculate</button> 
                         <button type="button" class="btn btn-secondary" onclick="saveForm();">Save</button>
                         <button type="button" class="btn btn-secondary" onclick="loadForm();">Load</button>
@@ -116,6 +124,8 @@
 src="https://code.jquery.com/jquery-3.4.1.min.js"
 integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
 crossorigin="anonymous"></script>
+    
+<!--- angular 1.6.9 -->    
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
     // --- global variables ---
@@ -129,12 +139,16 @@ var loans = [
   ]; 
   let loanWithInterest = 0;
   let int = 0;
+    
+    //functions
   
   // --- function: loadDoc() ---
   
+    
   function loadDoc() {
     
     // pre-fill defaults for first loan year
+    // this will fill out the loans section of the code with the default numbers and rates
     var defaultYear = loans[0].loan_year;
     $("#loan_year0" + 1).val(defaultYear++);
     var defaultLoanAmount = loans[0].loan_amount;
@@ -145,10 +159,11 @@ var loans = [
     $("#loan_bal0" + 1).text(toMoney(loanWithInterest));
     
     // pre-fill defaults for other loan years
+      //as i moves up it grabs all the years
     for(var i=2; i<6; i++) {
-      $(`#loan_year0${i}`).val(defaultYear++);
-      $(`#loan_year0${i}`).attr("disabled","true");
-      $(`#loan_year0${i}`).css({"backgroundColor":"grey","color":"white"});
+      $(`#loan_year0${i}`).val(defaultYear++); //add one year to each year so its 2020-2021-2022-etc
+      $(`#loan_year0${i}`).attr("disabled","true"); //this will grey out the second year
+      $(`#loan_year0${i}`).css({"backgroundColor":"grey","color":"white"}); //this will actually make it grey with white letters
       $(`#loan_amt0${i}`).val(defaultLoanAmount.toFixed(2));
       $(`#loan_int0${i}`).val(defaultInterestRate);
       $(`#loan_int0${i}`).attr("disabled","true");
@@ -189,13 +204,18 @@ var loans = [
     $(`#loan_int_accrued`).text(toMoney(int));
   }
   
+  //plain javascript 
+  
+  //for every 1,000 value this function will add a comma
   function toComma(value) {
       return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 
+  //this will add a dollar sign to the the value  
   let toMoney = (value) =>{
     return `\$${toComma(value.toFixed(2))}`;
   }
+  
   
   function updateLoansArray() {
     let valid = true;
@@ -238,10 +258,12 @@ var loans = [
     }
   }
 
+ //will stringafy the information entered and save to local storage
  let saveForm = () => {
    localStorage.setItem(`as06`, JSON.stringify(loans));
  }
 
+ //as long as local storage has something in it local storage will be parsed and displayed
  let loadForm = () => {
   if(localStorage.getItem(`as06`) != null){
      loans = JSON.parse(localStorage.getItem(`as06`));
@@ -250,6 +272,8 @@ var loans = [
      alert(`Error: no saved values`);
   }
  }
+ 
+ // angular
 
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
